@@ -1,0 +1,18 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
+development:
+  <<: *default
+  database: incubyte_assignment_development
+
+test:
+  <<: *default
+  database: incubyte_assignment_test
+
+production:
+  <<: *default
+  database: incubyte_assignment_production
+  username: incubyte_assignment
+  password: <%= ENV["INCUBYTE_ASSIGNMENT_DATABASE_PASSWORD"] %>
